@@ -3,24 +3,24 @@
 #sudo useradd -m megha_0
 i=1
 
-while true
+while (( $i < 10 ))
 do
 	sudo useradd -m megha_$i
-	echo adding user megha_$i
-	j=$((i+1))
-	sleep 10
-	if [ $j -gt $i ]
-		then 
-		sudo userdel megha_$j
-		echo deleteing user megha_$i
-	fi	
+	echo "adding user megha_$i"
+	i=$((i+1))
+	sleep 2
 
-	sleep 10
 
 
 done
 
 
+for i in 9 8 7 6 5 4 3 2 1
+do
 
-
+	sudo userdel -r megha_$i
+	echo "Deleting user megha_$i"
+#	i=$((i-1))
+	sleep 2
+done
 
